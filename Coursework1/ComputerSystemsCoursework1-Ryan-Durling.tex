@@ -22,7 +22,7 @@
 			
 			\item{ Next assume that the controller of the device has two 16-byte buffers and it interrupts the processor whenever one of the buffers is full.}\\ \\
 			\fbox{\parbox{\linewidth}{
-				Assumption: It can transfer all bytes from the buffer in the same amount of time as transferring one at a time from the previous question.\\ 
+				\textbf{Assumption}: It can transfer all bytes from the buffer in the same amount of time as transferring one at a time from the previous question.\\ 
 				
 				\SI{32000}{\byte\per\s} = \SI{32}{\kilo\byte\per\s} = Average data transfer\\
 				\SI{2e-5}{\s} = \SI{20}{\mics} = Interrupt time\\
@@ -56,7 +56,14 @@
 		\begin{enumerate}[itemsep=3em]
 			\item{Determine the length (in seconds) of the instruction cycle for the case of a string of 64 bytes.}\\ \\
 			\fbox{\parbox{\linewidth}{
-			
+				 $cycles/\s$  = \hertz \\
+				\SI{2e9}{\hertz} = \SI{2000000000}{\hertz} = \SI{2}{\giga \hertz} \\
+				\SI{10}{\hertz} = fetching and decoding instruction \\ 
+				\SI{5}{\hertz} = byte transfer \\ 
+				\SI{64}{\byte} = string \\
+				
+				10 + ($64 \times 5$) = 330 \\
+				 \SI{330e-9}{\s}				
 			}}
 		
 			\item{What is the worst-case delay for acknowledging an interrupt if the instruction is non-interruptable?}\\ \\
