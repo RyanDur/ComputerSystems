@@ -14,9 +14,9 @@
 		\begin{enumerate}[itemsep=3em]
 			\item{First assume that the device interrupts for every byte and that interrupt processing takes \SI{20}{\mics}.  This includes the overhead of setting up the interrupt service procedure (ISP) and returning from the ISP, as well as the \SI{4}{\mics} it takes to transfer one byte from the controller of the device.}\\ \\
 			\fbox{\parbox{\linewidth}{
-				\SI{32000}{\byte\per\s} = \SI{32}{\kilo\byte\per\s} \\
-				\SI{2e-5}{\s} = \SI{20}{\mics} \\ \\
-				 32000 * (\SI{2e-5}) = 0.64 \\
+				\SI{32000}{\byte\per\s} = \SI{32}{\kilo\byte\per\s} = Average data transfer\\
+				\SI{2e-5}{\s} = \SI{20}{\mics} = Interrupt time \\ \\
+				 $32000 \times (\SI{2e-5})$ = 0.64 \\
 				 0.64 = \SI{64}{\percent} = \nicefrac{64}{100} = \nicefrac{16}{25}
 			}}
 			
@@ -24,28 +24,29 @@
 			\fbox{\parbox{\linewidth}{
 				Assumption: It can transfer all bytes from the buffer in the same amount of time as transferring one at a time from the previous question.\\ 
 				
-				\SI{32000}{\byte\per\s} = \SI{32}{\kilo\byte\per\s} \\
-				\SI{2e-5}{\s} = \SI{20}{\mics} \\
-				\SI{16}{\byte} = 1 buffer \\ 
+				\SI{32000}{\byte\per\s} = \SI{32}{\kilo\byte\per\s} = Average data transfer\\
+				\SI{2e-5}{\s} = \SI{20}{\mics} = Interrupt time\\
+				\SI{16}{\byte} = Buffer size \\ 
 				2 = \# of buffers \\ 
 				
-				32000 / 16 = 2000 \\
-				2000 * 2 = 4000 \\
-				4000 * (\SI{2e-5}{\s}) =  0.08 \\ \\
+				$32000 \div 16$ = 2000 \\
+				$2000 \times 2$ = 4000 \\
+				$4000 \times (\SI{2e-5})$ =  0.08 \\ \\
 				0.08 = \SI{8}{\percent} = \nicefrac{8}{100} = \nicefrac{4}{50} = \nicefrac{2}{25}
 			}}
 		
 			\item{Assume, in addition to the buffers, that the processor is equipped with a block transfer I/O instruction which speeds up the transfer of a byte to \SI{2}{\mics}.}\\ \\
 			\fbox{\parbox{\linewidth}{
-				\SI{18}{\mics} = \SI{20}{\mics} - \SI{2}{\mics} \\
-				\SI{32000}{\byte\per\s} = \SI{32}{\kilo\byte\per\s} \\
-				\SI{1.8e-5}{\s} = \SI{18}{\mics} \\
-				\SI{16}{\byte} = 1 buffer \\ 
+				\SI{2}{\mics} = Transfer time\\
+				\SI{16}{\mics} = ISP setup time \\ 
+				\SI{32000}{\byte\per\s} = \SI{32}{\kilo\byte\per\s} = Average data transfer\\
+				\SI{1.8e-5}{\s} = \SI{18}{\mics} = \SI{16}{\mics} + \SI{2}{\mics} = Interrupt time\\
+				\SI{16}{\byte} = Buffer size \\ 
 				2 = \# of buffers \\ 
 
-				32000 / 16 = 2000 \\
-				2000 * 2 = 4000 \\
-				4000 * (\SI{1.8e-5}{\s}) =  0.072 \\ \\
+				$32000 \div 16$ = 2000 \\
+				$2000 \times 2$ = 4000 \\
+				$4000 \times (\SI{1.8e-5})$ =  0.072 \\ \\
 				0.072 = \SI{7.2}{\percent} = \nicefrac{7.2}{100} = \nicefrac{9}{125}
 			}}
 
