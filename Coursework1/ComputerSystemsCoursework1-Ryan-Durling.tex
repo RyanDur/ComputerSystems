@@ -1,31 +1,50 @@
 \documentclass[12pt]{article}
+\usepackage{enumitem}
+\usepackage[load=abbr, per-mode=symbol, alsoload=binary]{siunitx}
 \usepackage{fancyhdr}
 \pagestyle{fancyplain}
-
-\usepackage{enumitem}
-\usepackage[load=abbr]{siunitx}
 
 \begin{document}
 	\lhead{Ryan Durling}
 	\rhead{Computer Systems Coursework, Part1}
 
 	\begin{enumerate}[itemsep=3em]
-		\item{Assume that a particular device transfers data at an average of \SI[per-mode=symbol]{32}{\kilo\byte\per\s} on a continuous basis. Determine what fraction of the processor time is consumed by this I/O device using interrupt-driven I/O in each of the following cases.}\\	
+		\item{Assume that a particular device transfers data at an average of \SI{32}{\kilo\byte\per\s} on a continuous basis. Determine what fraction of the processor time is consumed by this I/O device using interrupt-driven I/O in each of the following cases.}\\	
 		\begin{enumerate}[itemsep=3em]
-			\item{First assume that the device interrupts for every byte and that interrupt processing takes \SI{20}{\mics}.  This includes the overhead of setting up the interrupt service procedure (ISP) and returning from the ISP, as well as the \SI{4}{\mics} it takes to transfer one byte from the controller of the device.}
+			\item{First assume that the device interrupts for every byte and that interrupt processing takes \SI{20}{\mics}.  This includes the overhead of setting up the interrupt service procedure (ISP) and returning from the ISP, as well as the \SI{4}{\mics} it takes to transfer one byte from the controller of the device.}\\
+			\fbox{\parbox{\textwidth}{
+			
+			}}
+			
+			\item{ Next assume that the controller of the device has two 16-byte buffers and it interrupts the processor whenever one of the buffers is full.}\\
+			\fbox{\parbox{\textwidth}{
+			
+			}}
 		
-			\item{ Next assume that the controller of the device has two 16-byte buffers and it interrupts the processor whenever one of the buffers is full.}
-		
-			\item{Assume, in addition to the buffers, that the processor is equipped with a block transfer I/O instruction which speeds up the transfer of a byte to \SI{2}{\mics}.}
+			\item{Assume, in addition to the buffers, that the processor is equipped with a block transfer I/O instruction which speeds up the transfer of a byte to \SI{2}{\mics}.}\\
+			\fbox{\parbox{\textwidth}{
+			
+			}}
+
 		\end{enumerate}
 	
 		\item{A \SI{2}{\giga \hertz} processor provides an instruction for loading a string of bytes from memory to an internal cache. The fetching and decoding of the instruction takes 10 clock cycles. Thereafter, it takes 5 clock cycles to transfer each byte.}\\
 		\begin{enumerate}[itemsep=3em]
-			\item{Determine the length (in seconds) of the instruction cycle for the case of a string of 64 bytes.}
+			\item{Determine the length (in seconds) of the instruction cycle for the case of a string of 64 bytes.}\\
+			\fbox{\parbox{\textwidth}{
+			
+			}}
 		
-			\item{What is the worst-case delay for acknowledging an interrupt if the instruction is non-interruptable?}
+			\item{What is the worst-case delay for acknowledging an interrupt if the instruction is non-interruptable?}\\
+			\fbox{\parbox{\textwidth}{
+			
+			}}
 		
-			\item{Repeat the previous item assuming that the instruction can be interrupted at the beginning of each byte transfer.}
+			\item{Repeat the previous item assuming that the instruction can be interrupted at the beginning of each byte transfer.}\\
+			\fbox{\parbox{\textwidth}{
+			
+			}}
+
 		\end{enumerate}
 	\end{enumerate}
 \end{document}
