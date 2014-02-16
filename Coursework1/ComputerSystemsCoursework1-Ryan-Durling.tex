@@ -20,35 +20,58 @@
 				 0.64 = \SI{64}{\percent} = \nicefrac{64}{100} = \nicefrac{16}{25}
 			}}
 			
+			\newpage
 			\item{ Next assume that the controller of the device has two 16-byte buffers and it interrupts the processor whenever one of the buffers is full.}\\ \\
-			\fbox{\parbox{\linewidth}{
-				\textbf{Assumption}: It can transfer all bytes from the buffer in the same amount of time as transferring one at a time from the previous question.\\ 
-				
-				\SI{32000}{\byte\per\s} = \SI{32}{\kilo\byte\per\s} = Average data transfer\\
-				\SI{2e-5}{\s} = \SI{20}{\mics} = Interrupt time\\
+			\fbox{\parbox{\linewidth}{				
+				\SI{32000}{\byte\per\s} = \SI{32}{\kilo\byte\per\s} = Average transfer\\
+				\SI{4e-6}{\s} = \SI{4}{\mics} = transfer time for 1 byte \\
+				\SI{1.6e-5}{\s} = \SI{16}{\mics} = ISP time \\
 				\SI{16}{\byte} = Buffer size \\ 
 				2 = \# of buffers \\ 
 				
-				$32000 \div 16$ = 2000 \\
-				$2000 \times 2$ = 4000 \\
-				$4000 \times (\SI{2e-5})$ =  0.08 \\ \\
-				0.08 = \SI{8}{\percent} = \nicefrac{8}{100} = \nicefrac{4}{50} = \nicefrac{2}{25}
+				(Average buffer transfer) = (Average transfer) $\div$ (\# of buffers) \\
+				16000 = $32000 \div 2$ \\	
+				
+				(\# of interrupts) = (Average buffer transfer) $\div$ (Buffer size) \\
+				1000 = 16000 $\div$ 16 \\		
+				
+				(time to load a buffer) = (transfer time for 1 byte) $\times$ (Buffer size) \\
+				64  = 4 $\times$ 16 \\ 
+				
+				(interrupt time) = (time to load a buffer) + (ISP time) \\
+				\SI{8e-5} = 80 = 64 + 16 \\
+					
+				(percentage for interrupt) = (\# of interrupts) $\times$ (interrupt time) \\			
+				0.08 = 1000 $\times$ (\SI{8e-5}) \\
+				
+				0.08 = \SI{8}{\percent} = \nicefrac{8}{100} = \nicefrac{2}{25}								
 			}}
 		
+			\newpage
 			\item{Assume, in addition to the buffers, that the processor is equipped with a block transfer I/O instruction which speeds up the transfer of a byte to \SI{2}{\mics}.}\\ \\
 			\fbox{\parbox{\linewidth}{
-				\SI{2}{\mics} = Transfer time\\
-				\SI{16}{\mics} = ISP setup time \\ 
-				\SI{32000}{\byte\per\s} = \SI{32}{\kilo\byte\per\s} = Average data transfer\\
-				\SI{1.8e-5}{\s} = \SI{18}{\mics} = \SI{16}{\mics} + \SI{2}{\mics} = Interrupt time\\
+				\SI{32000}{\byte\per\s} = \SI{32}{\kilo\byte\per\s} = Average transfer\\
+				\SI{2e-6}{\s} = \SI{2}{\mics} = transfer time for 1 byte \\
+				\SI{1.6e-5}{\s} = \SI{16}{\mics} = ISP time \\
 				\SI{16}{\byte} = Buffer size \\ 
 				2 = \# of buffers \\ 
-
-				$32000 \div 16$ = 2000 \\
-				$2000 \times 2$ = 4000 \\
-				$4000 \times (\SI{1.8e-5})$ =  0.072 \\ \\
-				0.072 = \SI{7.2}{\percent} = \nicefrac{7.2}{100} = \nicefrac{9}{125}
-			}}
+				
+				(Average buffer transfer) = (Average transfer) $\div$ (\# of buffers) \\
+				16000 = $32000 \div 2$ \\	
+				
+				(\# of interrupts) = (Average buffer transfer) $\div$ (Buffer size) \\
+				1000 = 16000 $\div$ 16 \\		
+				
+				(time to load a buffer) = (transfer time for 1 byte) $\times$ (Buffer size) \\
+				32  = 2 $\times$ 16 \\ 
+				
+				(interrupt time) = (time to load a buffer) + (ISP time) \\
+				\SI{4.8e-5} = 48 = 32 + 16 \\
+					
+				(percentage for interrupt) = (\# of interrupts) $\times$ (interrupt time) \\			
+				0.048 = 1000 $\times$ (\SI{4.8e-5}) \\
+				
+				0.048 = \SI{4.8}{\percent} = \nicefrac{4.8}{100} = \nicefrac{6}{125}					}}
 
 		\end{enumerate}
 	
