@@ -32,8 +32,11 @@
 				(Average buffer transfer) = (Average transfer) $\div$ (\# of buffers) \\
 				16000 = $32000 \div 2$ \\	
 				
-				(\# of interrupts) = (Average buffer transfer) $\div$ (Buffer size) \\
+				(interrupts per buffer) = (Average buffer transfer) $\div$ (Buffer size) \\
 				1000 = 16000 $\div$ 16 \\		
+				
+				(\# of interrupts) = (\# of interrupts for a buffer) $\times$ (\# of buffers) \\
+				2000 = 1000 $\times$ 2 \\
 				
 				(time to load a buffer) = (transfer time for 1 byte) $\times$ (Buffer size) \\
 				64  = 4 $\times$ 16 \\ 
@@ -42,9 +45,9 @@
 				\SI{8e-5} = 80 = 64 + 16 \\
 					
 				(percentage for interrupt) = (\# of interrupts) $\times$ (interrupt time) \\			
-				0.08 = 1000 $\times$ (\SI{8e-5}) \\
+				0.16 = 2000 $\times$ (\SI{8e-5}) \\
 				
-				0.08 = \SI{8}{\percent} = \nicefrac{8}{100} = \nicefrac{2}{25}								
+				0.16 = \SI{16}{\percent} = \nicefrac{16}{100} = \nicefrac{4}{25}								
 			}}
 		
 			\newpage
@@ -59,8 +62,11 @@
 				(Average buffer transfer) = (Average transfer) $\div$ (\# of buffers) \\
 				16000 = $32000 \div 2$ \\	
 				
-				(\# of interrupts) = (Average buffer transfer) $\div$ (Buffer size) \\
-				1000 = 16000 $\div$ 16 \\		
+				(interrupts per buffer) = (Average buffer transfer) $\div$ (Buffer size) \\
+				1000 = 16000 $\div$ 16 \\	
+				
+				(\# of interrupts) = (\# of interrupts for a buffer) $\times$ (\# of buffers) \\
+				2000 = 1000 $\times$ 2 \\	
 				
 				(time to load a buffer) = (transfer time for 1 byte) $\times$ (Buffer size) \\
 				32  = 2 $\times$ 16 \\ 
@@ -69,12 +75,13 @@
 				\SI{4.8e-5} = 48 = 32 + 16 \\
 					
 				(percentage for interrupt) = (\# of interrupts) $\times$ (interrupt time) \\			
-				0.048 = 1000 $\times$ (\SI{4.8e-5}) \\
+				0.096 = 2000 $\times$ (\SI{4.8e-5}) \\
 				
-				0.048 = \SI{4.8}{\percent} = \nicefrac{4.8}{100} = \nicefrac{6}{125}					}}
+				0.096 = \SI{9.6}{\percent} = \nicefrac{9.6}{100} = \nicefrac{12}{125}					}}
 
 		\end{enumerate}
 	
+		\newpage
 		\item{A \SI{2}{\giga \hertz} processor provides an instruction for loading a string of bytes from memory to an internal cache. The fetching and decoding of the instruction takes 10 clock cycles. Thereafter, it takes 5 clock cycles to transfer each byte.}\\
 		\begin{enumerate}[itemsep=3em]
 			\item{Determine the length (in seconds) of the instruction cycle for the case of a string of 64 bytes.}\\ \\
