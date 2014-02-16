@@ -104,12 +104,20 @@
 		
 			\item{What is the worst-case delay for acknowledging an interrupt if the instruction is non-interruptable?}\\ \\
 			\fbox{\parbox{\linewidth}{
-				The worst case delay before acknowledging and interrupt if the the instruction is non-interrupable is the length of the instruction. So, it is \SI{1.65e-7}{\s} assuming that it is \SI{64}{\byte}.
+				The worst case delay before acknowledging and interrupt, if the the instruction is non-interrupable, is the length of the instruction. So, it is \SI{1.65e-7}{\s} assuming that it is \SI{64}{\byte}.
 			}}
 		
+			\newpage
 			\item{Repeat the previous item assuming that the instruction can be interrupted at the beginning of each byte transfer.}\\ \\
 			\fbox{\parbox{\linewidth}{
-			
+				The worst case delay case delay for servicing an interrupt if it can happen at the beginning of each byte transfer is immediately after the fetch and decode procedure. \\
+				
+				\SI{2e9}{\hertz} = \SI{2000000000}{\hertz} = \SI{2}{\giga \hertz} \\
+				\SI{10}{\hertz} = fetching and decoding instruction \\ 
+				
+				length (in seconds)) = (fetching and decoding) $\div$ (\SI{2}{\giga \hertz}) \\
+				\SI{5e-9}{\s} = 0.000000005 = 10 $\div$ (\SI{2e9})
+
 			}}
 
 		\end{enumerate}
