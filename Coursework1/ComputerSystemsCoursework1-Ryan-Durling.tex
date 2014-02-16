@@ -92,8 +92,14 @@
 				\SI{5}{\hertz} = byte transfer \\ 
 				\SI{64}{\byte} = string \\
 				
-				10 + ($64 \times 5$) = 330 \\
-				 \SI{330e-9}{\s}				
+				(\# of cycles for string) = (byte transfer) $\times$ (bytes) \\
+				320 = 64 $\times$ 5 \\
+				
+				(total cycles) = (fetching and decoding) + (\# of cycles for string) \\
+				330 = 10 + 320 \\
+				
+				(length (in seconds)) = (total cycles) $\div$ (\SI{2}{\giga \hertz}) \\
+				\SI{1.65e-7}{\s} = 0.0000001.65 = 330 $\div$ (\SI{2e9})
 			}}
 		
 			\item{What is the worst-case delay for acknowledging an interrupt if the instruction is non-interruptable?}\\ \\
